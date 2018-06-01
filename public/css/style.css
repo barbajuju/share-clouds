@@ -1,0 +1,92 @@
+#titre, #home1, #home2, #take-picture, #map, #album, #detail, #footer1, #footer2, #footer3{
+    display : none;
+}
+
+@font-face {
+    font-family: 'CloudHome';
+    src: url('../font/CloudHome.eot');
+    url('../font/CloudHome.woff') format('woff'),
+    url('../font/CloudHome.ttf') format('truetype'),
+    url('../font/CloudHome.svg#CloudHome') format('svg'),
+    url('../font/CloudHome.eot?#iefix') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+h1 {
+    font-family:CloudHome, sans-serif;
+    font-size: 6vmax;
+    color: white;
+}
+
+body {
+    background-image: url("../img/background.png");
+    background-color: #1B7AE6;
+    background-repeat : no-repeat;
+    background-attachment: fixed;
+    background-position: right bottom;
+    min-height: 100%;
+}
+
+#titre{
+    padding: 10px 0px 10px 0px;
+    max-width: 100%;
+}
+
+img {
+    max-width: 100%;
+}
+
+.center {
+    text-align: center;
+}
+
+.slideshow {
+    width: 350px;
+    height: 200px;
+    overflow: hidden;
+    border: 3px solid #F2F2F2;
+}
+
+.slideshow ul {
+    /* 4 images donc 4 x 100% */
+    width: 400%;
+    height: 200px;
+    padding:0; margin:0;
+    list-style: none;
+}
+.slideshow li {
+    float: left;
+}
+
+.button-big {
+    color: #FFF;
+    font-size: 2vmax;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    background: dodgerblue;
+    padding: 8px 14px;
+}
+
+.button-small {
+    color: #FFF;
+    font-size: 1vmax;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    background: deepskyblue;
+    padding: 6px 12px;
+}
+
+.flex{
+    display: flex;
+    justify-content: space-around;
+}
+
+footer {position: absolute; height: 20%; bottom: 0; left: 0; right: 0}
