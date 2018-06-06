@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use App\Entity\Users;
@@ -11,7 +12,7 @@ class HomeController extends Controller
     /**
      * @Route("/", name="home")
      */
-    public function home()
+    public function home(Request $request)
     {
 
         // Création d'un nouvel utilisateur :
@@ -35,4 +36,9 @@ class HomeController extends Controller
             'controller_name' => 'HomeController',
         ]);
     }
+
+
+
+
+
 }

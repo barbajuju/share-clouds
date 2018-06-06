@@ -3,40 +3,12 @@
 {% block title %}Hello {{ controller_name }}!{% endblock %}
 
 {% block body %}
-    <form action="..." method="post" enctype="multipart/form-data">
-    <!-- Pour une image (appareil photo) -->
-    <input type="file" name="image" accept="image/*" capture>
-    <!-- Pour une vidéo (caméra) -->
-    <input type="file" name="video" accept="video/*" capture>
-    <!-- Pour un son (micro) -->
-    <input type="file" name="son" accept="audio/*" capture>
-    <input type="submit" value="Upload">
-</form>
-<br><br>
-
-<br>
-    Prenez une photo :
-    <input type="file" accept="image/*" capture="camera"
-           id="testFile" name="test"><br>
-    <img id="testImg" style="width:100px"><br>
-    Enregistrez un son :
-    <input type="file" accept="audio/*" capture><br>
-    Enregistrez une vidéo :
-    <input type="file" accept="video/*">
-    <script>
-        document.getElementById("testFile").onchange = function (event) {
-            src = window.URL.createObjectURL(event.target.files[0])
-            document.getElementById("testImg").src = src
-            window.URL.revokeObjectURL(src)}
-    </script>
 
 
-    {# vérification de la compatibilité de la capture (proposer l'upload?) #}
-    <script src="js/html5detect.js"></script>
-    <script>
-        isAttributeSpecified("test", "capture")
-        isItemSupported("window.URL.createObjectURL", true)
-    </script>
+    <h2>Formulaire Picture</h2>
 
+    <div id="newForm">
+        {{ form(form) }}
+    </div>
 
 {% endblock %}

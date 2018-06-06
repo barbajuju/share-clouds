@@ -3,11 +3,12 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PictureRepository")
  */
-class Picture
+class Picture implements \JsonSerializable
 {
     /**
      * @ORM\Id()
@@ -23,6 +24,8 @@ class Picture
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Merci d'uploader un format de fichier correct.")
+     * @Assert\File(mimeTypes={ "image/png", "image/jpeg" })
      */
     private $image;
 
@@ -58,12 +61,12 @@ class Picture
         return $this;
     }
 
-    public function getImage(): ?string
+    public function getImage()
     {
         return $this->image;
     }
 
-    public function setImage(string $image): self
+    public function setImage($image)
     {
         $this->image = $image;
 
@@ -105,4 +108,32 @@ class Picture
 
         return $this;
     }
+
+    // Affecte la date du jour lors de la construction du nouvel objet
+    public function __construct()
+    {
+        $this->date = new \DateTime('now');
+    }
+
+    /**
+     * Specify data which should be serialized to JSON
+     * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
+     * @return mixed data which can be serialized by <b>json_encode</b>,
+     * which is a value of any type other than a resource.
+     * @since 5.4.0
+     */
+
+
+
+    public function jsonSerialize()
+    {
+        return [
+            "title" =>$this->getName(),
+            "image"=>$this->getNickname(),
+            "geolocalisation"=>$this->getMail(),
+            "comment"=>$this->getComment(),
+            "date"=>$this->getDate(),
+        ];
+    }
+
 }
