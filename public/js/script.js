@@ -70,8 +70,52 @@ function showDetail(){
 }
 
 
-$("#home-btn").on("click", showHome)
-$("#take-picture-btn").on("click", showTakePicture)
-$("#map-btn").on("click", showMap)
-$("#album-btn").on("click", showAlbum)
-$("#detail-btn").on("click", showDetail)
+$("#home-btn").on("click", showHome);
+$("#take-picture-btn").on("click", showTakePicture);
+$("#map-btn").on("click", showMap);
+$("#album-btn").on("click", showAlbum);
+$("#detail-btn").on("click", showDetail);
+
+
+
+
+// Gestion des fonctions:
+$("#submitForm").on("click", function(e){
+    e.preventDefault();
+    var idfiche = $("#idfiche").val();
+    loadPrenom(idfiche);
+    console.log(idfiche)
+})
+
+
+function loadPrenom(idfiche){
+    $.ajax(
+        {
+            type: "POST",
+            url : "http://localhost/share-clouds/public/gallery/",
+            data : {log:idfiche
+            },
+            headers : {
+                accept : "application/json"
+            },
+
+            success : function( mydata ) {
+
+                if (mydata.status = "ok") {
+                    $("#loginForm").hide();
+                    $("#id").text(mydata.data.id);
+                    /*$("#pseudo").text(mydata.data.nickname);
+                    $("#mail").text(mydata.data.mail);
+                    $('#divInfos').show();*/
+
+                }
+                else {
+                    console.log("vomir du sang");
+                }
+
+            }
+        }
+    ).done(function(data){
+
+    });
+}

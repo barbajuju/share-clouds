@@ -14,7 +14,7 @@ class GallerytestController extends Controller
 {
     //Liste de toutes les photos
     /**
-     * @Route("/gallery", name="gallery")
+     * @Route("/gallerytest", name="gallerytest")
      * @Method({"GET"})
      */
     public function getPictures()
@@ -41,7 +41,7 @@ class GallerytestController extends Controller
 
     //Interrogation d'une photo avec son id
     /**
-     * @Route("/gallery/{id}", name="picture_one")
+     * @Route("/gallerytest/{id}", name="picture_one")
      * @Method({"GET"})
      */
     public function getPicture(Request $request)
@@ -72,7 +72,7 @@ class GallerytestController extends Controller
     //Ajout d'une image
     /*          //manque une étoile
      * @Rest\View(statusCode=Response::HTTP_CREATED)
-     * @Rest\Post("/gallery")
+     * @Rest\Post("/gallerytest")
      */
     public function postPicture(Request $request)
     {
