@@ -17,55 +17,42 @@ class GallerytestController extends Controller
      * @Route("/gallerytest", name="gallerytest")
      * @Method({"GET"})
      */
-    public function getPictures()
+    public function getPictures(Request $request)
     {
-        $picture = $this->get('doctrine.orm.entity_manager')
-            ->getRepository('App:Picture')
-            ->findAll();
-        /* @var $picture Picture[] */
-
-        $formatted = [];
-        foreach ($picture as $picture) {
-            $formatted[] = [
-                'id' => $picture->getId(),
-                'title' => $picture->getTitle(),
-                'image' => $picture->getImage(),
-                'geolocalisation' => $picture->getGeolocalisation(),
-                'comment' => $picture-> getComment(),
-                'date' => $picture->getDate()
-            ];
-        }
-
-        return new JsonResponse($formatted);
+        $picture = $this->getDoctrine()->getRepository(Picture::class);
+        $q = $request->query->get("q");
+        $pictures = $picture->findAll();
+        return $this->json(
+            [
+                "status" => "ok",
+                "message" => "",
+                "data" => $pictures
+            ]
+        );
     }
 
     //Interrogation d'une photo avec son id
     /**
      * @Route("/gallerytest/{id}", name="picture_one")
      * @Method({"GET"})
+     * @param $id
+     * @param Request $request
+     * @return JsonResponse
      */
-    public function getPicture(Request $request)
+    public function getPicture($id, Request $request)
     {
-        $picture = $this->get('doctrine.orm.entity_manager')
-            ->getRepository('App:Picture')
-            ->find($request->get('id'));
-        /* @var $picture Picture */
-
-        // Vérification de l'existance de l'id
-        if (empty($picture)) {
-            return new JsonResponse(['message' => 'Picture not found'], Response::HTTP_NOT_FOUND);
+        {
+            $picture = $this->getDoctrine()->getRepository(Picture::class);
+            $q = $request->query->get("q");
+            $pictures = $picture->find($id);
+            return $this->json(
+                [
+                    "status" => "ok",
+                    "message" => "",
+                    "data" => $pictures
+                ]
+            );
         }
-
-        $formatted[] = [
-            'id' => $picture->getId(),
-            'title' => $picture->getTitle(),
-            'image' => $picture->getImage(),
-            'geolocalisation' => $picture->getGeolocalisation(),
-            'comment' => $picture-> getComment(),
-            'date' => $picture->getDate()
-        ];
-
-        return new JsonResponse($formatted);
     }
 
 

@@ -12,7 +12,7 @@ class GalleryController extends Controller
 {
     //Interrogation d'une photo avec son id
     /**
-     * @Route("/gallery", name="picture_one")
+     * @Route("/gallery/connex", name="picture_one")
      * @Method({"GET"})
      */
     public function getPicture(Request $request)

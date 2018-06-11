@@ -128,9 +128,9 @@ class Picture implements \JsonSerializable
     public function jsonSerialize()
     {
         return [
-            "title" =>$this->getName(),
-            "image"=>$this->getNickname(),
-            "geolocalisation"=>$this->getMail(),
+            "title" =>$this->getTitle(),
+            "image"=>$this->getImage(),
+            "geolocalisation"=>$this->getGeolocalisation(),
             "comment"=>$this->getComment(),
             "date"=>$this->getDate(),
         ];
