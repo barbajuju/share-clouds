@@ -10,17 +10,16 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
-class GallerytestController extends Controller
+class APIShareClouds extends Controller
 {
     //Liste de toutes les photos
     /**
-     * @Route("/gallerytest", name="gallerytest")
+     * @Route("/picture", name="gallerytest")
      * @Method({"GET"})
      */
-    public function getPictures(Request $request)
+    public function getPictureList(Request $request)
     {
         $picture = $this->getDoctrine()->getRepository(Picture::class);
-        $q = $request->query->get("q");
         $pictures = $picture->findAll();
         return $this->json(
             [
@@ -33,26 +32,20 @@ class GallerytestController extends Controller
 
     //Interrogation d'une photo avec son id
     /**
-     * @Route("/gallerytest/{id}", name="picture_one")
-     * @Method({"GET"})
-     * @param $id
-     * @param Request $request
-     * @return JsonResponse
+     * @Route("/picture/{id}", name="api_movies_detail", methods={"GET"})
      */
-    public function getPicture($id, Request $request)
+    public function getPictureDetails(int $id, Request $request)
     {
-        {
-            $picture = $this->getDoctrine()->getRepository(Picture::class);
-            $q = $request->query->get("q");
-            $pictures = $picture->find($id);
-            return $this->json(
-                [
-                    "status" => "ok",
-                    "message" => "",
-                    "data" => $pictures
-                ]
-            );
-        }
+        $picture = $this->getDoctrine()->getRepository(Picture::class);
+        $pictures = $picture->find($id);
+
+        return $this->json(
+            [
+                "status" => "ok",
+                "message" => "",
+                "data" => $pictures
+            ]
+        );
     }
 
 

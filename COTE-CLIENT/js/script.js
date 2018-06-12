@@ -80,12 +80,17 @@ $("#detail-btn").on("click", showDetail);
 
 
 // Gestion des fonctions:
-$("#submitForm").on("click", function(e){
-    e.preventDefault();
-    var idfiche = $("#idfiche").val();
-    loadPrenom(idfiche);
-    console.log(idfiche)
-})
+
+
+$.ajax({
+    url: "http://localhost/share-clouds/public/picture/",
+    dataType: 'json',
+    success: function(results){
+        console.log(results);
+    }
+});
+
+
 
 
 function loadPrenom(idfiche){

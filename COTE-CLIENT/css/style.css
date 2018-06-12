@@ -5,8 +5,7 @@
 @font-face {
     font-family: 'CloudHome';
     src: url('../font/CloudHome.eot');
-    src: url('../font/CloudHome.woff2') format('woff2'),
-    url('../font/CloudHome.woff') format('woff'),
+    src: url('../font/CloudHome.woff') format('woff'),
     url('../font/CloudHome.ttf') format('truetype'),
     url('../font/CloudHome.svg#CloudHome') format('svg'),
     url('../font/CloudHome.eot?#iefix') format('embedded-opentype');
@@ -19,6 +18,7 @@ h1 {
     font-family:CloudHome, sans-serif;
     font-size: 6vmax;
     color: white;
+    font-weight: lighter;
 }
 
 body {
