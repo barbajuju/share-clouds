@@ -6,6 +6,7 @@
     font-family: 'CloudHome';
     src: url('../font/CloudHome.eot');
     src: url('../font/CloudHome.woff') format('woff'),
+    url('../font/CloudHome.woff2') format('truetype'),
     url('../font/CloudHome.ttf') format('truetype'),
     url('../font/CloudHome.svg#CloudHome') format('svg'),
     url('../font/CloudHome.eot?#iefix') format('embedded-opentype');
