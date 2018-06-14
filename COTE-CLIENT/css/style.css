@@ -1,4 +1,4 @@
-#titre, #home1, #home2, #take-picture, #map, #album, #detail, #footer1, #footer2, #footer3{
+#titre, #take-picture, #map, #album, #detail, #footer1, #footer2, #footer3{
     display : none;
 }
 
@@ -91,4 +91,5 @@ img {
     justify-content: space-around;
 }
 
-footer {position: absolute; height: 20%; bottom: 0; left: 0; right: 0}
+/* footer {position: absolute; height: 20%; bottom: 0; left: 0; right: 0}
+footer {position: absolute; height: 20%; bottom: 0; left: 0; right: 0} */
