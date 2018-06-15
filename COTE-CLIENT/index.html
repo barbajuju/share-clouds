@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Share Clouds</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/loopslider.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="ico/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="ico/favicon-16x16.png">
+    <link rel="manifest" href="ico/site.webmanifest">
+    <link rel="mask-icon" href="ico/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+<header>
+    <div id="titre" class = "center">
+        <h1 id="home-btn">Share Clouds</h1>
+    </div>
+</header>
+
+<section id="take-picture" class="center">
+    capture photo form
+</section>
+
+<section id="map" class="center">
+    carte avec les photos prises
+</section>
+
+<section id="album" class="center">
+
+    <section id="slider">
+        <div class="slider-container">
+            <figure>
+                <img src="img/Lake.jpg" alt="">
+                <figcaption>Image caption 1</figcaption>
+            </figure>
+            <figure>
+                <img src="img/Sky.jpg" alt="">
+                <figcaption>Image caption 2</figcaption>
+            </figure>
+            <figure>
+                <img src="img/Mt-Fuji.jpg" alt="">
+                <figcaption>Image caption 3</figcaption>
+            </figure>
+        </div>
+    </section>
+    <div id="images"></div>
+</section>
+
+<section id="detail" class="center">
+    photo grand format
+    titre
+    commentaires etc
+
+    <div id="divInfos">
+        <p>title : <span id="detail_title"></span></p>
+        <p>image : <span id="detail_image"></span></p>
+        <p>geolocalisation : <span id="detail_geolocalisation"></span></p>
+        <p>comment : <span id="detail_comment"></span></p>
+    </div>
+
+</section>
+
+
+<footer>
+    <div id="footer">
+        <div id="footer1" class="flex">
+            <button id="take-picture-btn" class="button-big center">Prendre une Photo</button>
+        </div>
+        <div id="footer2" class="flex">
+            <button id="album-btn" class="button-small">Galerie des nuages</button>
+            <button id="map-btn" class="button-small">Carte des nuages</button>
+            <button id="detail-btn" class="button-small">Détails d'une image (TMP)</button>
+        </div>
+        <div id="footer3" class = "center">Tous droits réservés - </div>
+    </div>
+</footer>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/jquery.loopslider.min.js"></script>
+<script src="js/jquery.loopslider.js"></script>
+<script src="js/script.js" type="text/javascript"></script>
+</body>
+</html>
